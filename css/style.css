@@ -71,17 +71,6 @@ a:active {
   width: 100%;
 }
 
-/* マージンの相殺 */
-
-/* 一時的確認画面 */
-/* .header,
-.main,
-.sideMenu,
-.footer {
-  border: 1px solid #aaa;
-  background-color: #ccc;
-} */
-
 .header,
 .footer {
   height: 100px;
@@ -317,6 +306,7 @@ a:active {
 .ranking {
   margin-bottom: 30px;
   list-style-type: none;
+  counter-reset: ranking;
 }
 
 .ranking .ranking-item {
@@ -358,12 +348,133 @@ a:active {
   text-align: center;
   font-weight: bold;
   line-height: 16px;
-
-
   /* 枠をひし形にするcss */
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+.ranking .ranking-it:nth-of-type(1) .order,
+.ranking .ranking-it:nth-of-type(2) .order,
+.ranking .ranking-it:nth-of-type(3) .order {
+  border: none;
+  color: #fff;
+  font-weight: normal;
+  line-height: 1.8px;
+}
+
+/* 上位3位のみ色を背景煮付けて */
+
+.ranking .ranking-item:nth-of-type(1) .order {
+  background-color: #dab413;
+}
+.ranking .ranking-item:nth-of-type(2) .order {
+  background-color: #6e7b84;
+}
+.ranking .ranking-item:nth-of-type(3) .order {
+  background-color: #a0541a;
+}
+
+.ranking .order::before {
+  content: counter(ranking);
+  counter-increment: ranking;
+  display: inline-block;
+  font-size: 1rem;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.documents {
+  margin: 10px 10px 30px;
+}
+
+.documents,
+.documents ul {
+  list-style-type: none;
+}
+
+.documents > li .title {
+  margin: 15px 0;
+  padding-left: 8px;
+  border-left: 5px solid#d03c56;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.documents > li + li {
+  margin-top: 25px;
+}
+
+.documents > li ul {
+  margin: 15px;
+}
+
+.documents > li ul > li {
+  margin-bottom: 15px;
+  padding-left: 10px;
+  background: url("../images/arrow.gif") no-repeat left center;
+}
+
+.documents a:hover {
+  text-decoration: underline;
+}
+
+.search-box {
+  padding: 15px;
+  background-color: #ccc;
+  font-size: 0;
+}
+
+.search-box > * {
+  font-size: 1.2rem;
+}
+
+.search-box .search-input {
+  width: 205px;
+  height: 26px;
+  padding: 0 10px;
+  border: none;
+}
+
+.search-box .search-button {
+  width: 40px;
+  height: 26px;
+  border: none;
+  background-color: #d03c56;
+  color: #fff;
+  cursor: pointer;
+}
+
+.search-box .text {
+  margin-top: 12px;
+}
+
+
+/* footer */
+
+.footer {
+  width: 100%;
+  padding: 20px 0 30px;
+  background: #2d3d54 url('../images/bg-footer.gif');
+  color #fff;
+}
+
+.horizontal-list {
+  width: 970px;
+  margin: 0 auto;
+  text-align: right;
+  font-size: 0;
+}
+
+.horizontal-list .horizontal-item {
+  display: inline-block;
+  padding: 0 15px;
+  letter-spacing: 1px;
+}
+
+
+
+
 
 
